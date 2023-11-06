@@ -55,6 +55,7 @@ Why it fixed the issue:
 ## Part 2 - Researching Commands (find)
 
 ### Option 1 -name
+SOURCES: MAN 
 Command and output:
 ```
     find ./technical -name "*2-12.txt"
@@ -74,6 +75,7 @@ Command and output:
 What its doing and why it is useful:
 It looped through the entire directory and found all of the files with file names that ended in 2-12.txt. This is very helpful because if the file names are coded by date, then we could use this method to find files for specific dates.
 
+SOURCES: MAN 
 Command and output:
 ```
     find ./technical -type d -name "biomed"
@@ -84,6 +86,7 @@ What its doing and why it is useful:
 It is looping through the entire directory and listing all of the directories that has the name biomed. This could be useful if there are organized directories for genres of books and we want to see if a specific genre exist. 
 
 ### Option 2 -type
+SOURCES: MAN 
 Command and output:
 ```
     find ./technical -type d
@@ -103,6 +106,7 @@ Command and output:
 What its doing and why it is useful:
 It is listing all of the directories that are under this directory, it also shows all of the sub directories. This is useful because we can quickly see what directories exist which can help us understand the strucutre of the filesystem. 
 
+SOURCES: MAN 
 Command and output:
 ```
     find ./technical -type f
@@ -121,6 +125,7 @@ What its doing and why it is useful:
 This will return all of the file names that exist under the directoriy, this also works on all subdirectories. This is useful if you just want the file links and not the directories.
 
 ### Option 3 -mtime 
+SOURCES: MAN 
 Command and output:
 ```
     find technical -mtime -7
@@ -137,6 +142,7 @@ Command and output:
 What its doing and why it is useful:
 It is looping through all the files and finding the files that have been edited within the last 7 days. This is useful if you are trying to filter through the files that you work with frequently.
 
+SOURCES: MAN 
 Command and output:
 ```
     find technical -type d -mtime -7
@@ -158,6 +164,7 @@ What its doing and why it is useful:
 It is looping through all the directories and finding the directories that have been edited within the last 7 days. This is useful if you are trying to filter through the directory that you work with frequently.
 
 ### Option 4 -size
+SOURCES: MAN 
 Command and output:
 ```
     find technical -type d -size -10k 
@@ -176,6 +183,7 @@ technical/911report
 What its doing and why it is useful:
 It will loop through all of the directories and sub directories and find all of the directories that are less than 10k in size. This is useful if you are trying to identify which directories have a lot of files which might be a sign to have furthur subdivision. 
 
+SOURCES: MAN 
 Command and output:
 ```
     find technical -type f -size +200k 
