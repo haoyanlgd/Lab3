@@ -4,30 +4,53 @@
 
 ### Failure Inducing Input:
 ```
-    some code here
+  @Test
+  public void testReverseInPlace_bug() {
+      int[] arr = {1, 2, 3, 4, 5};
+      int[] rev = {5, 4, 3, 2, 1};
+      
+      ArrayExamples.reverseInPlace(arr);
+      
+      assertArrayEquals(rev, arr);
+  }
 ```
 
 ### Non-Failure Inducing Input:
 ```
-    some code here
+    @Test 
+	public void testReverseInPlace() {
+    int[] input1 = { 3 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{ 3 }, input1);
+	}
 ```
 
 ### The symptom, as the output of running the tests
- ![Image](Cd_no_arg.PNG)
+ ![Image](symptoms.png)
 
 
 ### The bug before and after:
 before:
 ```
-    some code here
+    static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
 ```
 after:
 ```
-    some code here
+    static void reverseInPlace(int[] arr) {
+    for (int i = 0; i < arr.length / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[arr.length - i - 1];
+        arr[arr.length - i - 1] = temp;
+    }
+}
 ```
 
 Why it fixed the issue:
-    some explaination
+    In the original code the array was not using a temp variable to store the original values as it reverses. The result was that as it reversed the later half of the array, it wasn't using the original array values anymore. Adding a temp variable solves this.
 
 ## Part 2 - Researching Commands (find)
 

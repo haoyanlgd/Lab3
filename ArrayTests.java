@@ -9,10 +9,18 @@ public class ArrayTests {
     assertArrayEquals(new int[]{ 3 }, input1);
 	}
 
-
   @Test
-  public void testReversed() {
-    int[] input1 = { };
-    assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+  public void testReverseInPlace_bug() {
+      int[] arr = {1, 2, 3, 4, 5};
+      int[] rev = {5, 4, 3, 2, 1};
+      
+      // Call the method with errors
+      ArrayExamples.reverseInPlace(arr);
+      
+      // Check if the array has been reversed in place
+      assertArrayEquals(rev, arr);
   }
+
+
+
 }
